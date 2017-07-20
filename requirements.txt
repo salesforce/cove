@@ -1,0 +1,2 @@
+-r https://raw.githubusercontent.com/pytorch/text/master/requirements.txt
+-e git://github.com/pytorch/text.git#egg=torchtext
