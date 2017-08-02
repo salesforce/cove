@@ -1,6 +1,6 @@
 # Context Vectors (CoVe)
 
-This repo provides the best MT-LSTM from the paper [Learned in Translation: Contextualized Word Vectors (McCann et. al. 2017)](https://einstein.ai/research/static/images/layouts/research/cove/McCann2017LearnedIT.pdf).
+This repo provides the best MT-LSTM from the paper [Learned in Translation: Contextualized Word Vectors (McCann et. al. 2017)](https://arxiv.org/abs/1708.00107).
 For a high-level overview of why CoVe are great, check out the [post](https://einstein.ai/research/learned-in-translation-contextualized-word-vectors).
 
 example.py uses [torchtext](https://github.com/pytorch/text/tree/master/torchtext) to load the [Stanford Natural Language Inference Corpus](https://nlp.stanford.edu/projects/snli/) and [GloVe](https://nlp.stanford.edu/projects/glove/).
@@ -29,15 +29,15 @@ Run the example with `python example.py`.
 
 ## References
 
-When the paper is live on arxiv, we will update the link and reference below. If using this code, please cite:
+If using this code, please cite:
 
-   B. McCann, J. Bradbury, C. Xiong, R. Socher, [*Learned in Translation: Contextualized Word Vectors*](https://einstein.ai/research/static/images/layouts/research/cove/McCann2017LearnedIT.pdf)
+   B. McCann, J. Bradbury, C. Xiong, R. Socher, [*Learned in Translation: Contextualized Word Vectors*](https://arxiv.org/abs/1708.00107)
 
 ```
 @article{McCann2017LearnedIT,
   title={Learned in Translation: Contextualized Word Vectors},
   author={Bryan McCann and James Bradbury and Caiming Xiong and Richard Socher},
-  journal={arXiv preprint arXiv:?},
+  journal={arXiv preprint arXiv:1708.00107},
   year={2017}
 }
 ```
