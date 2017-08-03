@@ -18,8 +18,6 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
 
 ENV PATH /opt/conda/bin:$PATH
 RUN conda install -c soumith pytorch=0.1.12 cuda80
-RUN pip install -r https://raw.githubusercontent.com/pytorch/text/master/requirements.txt
-RUN pip install git+https://github.com/pytorch/text.git
 
 # Default to utf-8 encodings in python
 # Can verify in container with:
@@ -28,3 +26,6 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8  
 ENV LANGUAGE en_US:en  
 ENV LC_ALL en_US.UTF-8
+
+ADD ./ /cove/
+RUN cd cove && pip install -r requirements.txt && python setup.py develop

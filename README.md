@@ -10,21 +10,26 @@ which takes in sequences of vectors pretrained with GloVe and outputs CoVe.
 
 ## Running with Docker
 
-We have included a Dockerfile that covers all dependencies.  
-We typically use this code on a machine with a GPU, 
-so we use `nvidia-docker`.
+Install [Docker](https://www.docker.com/get-docker).
+Install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) if you would like to use with with a GPU.
 
-Once you have installed [Docker](https://www.docker.com/get-docker), 
-pull the docker image with `docker pull bmccann/cove`.
-Then you can use `nvidia-docker run -it -v /path/to/cove/:/cove cove` to start a docker container using that image.
-Once the container is running, 
-you can use `nvidia-docker ps` to find the `container_name` and
-`nvidia-docker exec -it container_name bash -c "cd cove && python example.py"` to run example.py.
+```bash
+docker pull bmccann/cove   # pull the docker image
+docker run -it cove        # start a docker container
+python /cove/test/example.py
+```
 
 ## Running without Docker
 
-You will need to install PyTorch and then run `pip install -r requirements.txt`
-Run the example with `python example.py`.
+Install [PyTorch](http://pytorch.org/).
+
+```bash 
+git clone https://github.com/salesforce/cove.git # use ssh: git@github.com:salesforce/cove.git
+cd cove
+pip install -r requirements.txt
+python setup.py develop
+python test/example.py
+```
 
 
 ## References
