@@ -46,7 +46,7 @@ class MTLSTM(nn.Module):
             hidden (Float Tensor): initial hidden state of the LSTM
         """
         if self.embed:
-            inputs = self.vectors(inputs.t()).t()
+            inputs = self.vectors(inputs)
         lens, indices = torch.sort(lengths, 0, True)
         outputs, hidden_t = self.rnn(pack(inputs[indices], lens.tolist(), batch_first=True), hidden)
         outputs = unpack(outputs, batch_first=True)[0]
