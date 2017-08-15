@@ -24,7 +24,7 @@ class MTLSTM(nn.Module):
             vectors (Float Tensor): If not None, initialize embedding matrix with specified vectors
             residual_embedding (bool): If True, concatenate the input embeddings with MTLSTM outputs during forward
         """
-        super().__init__()
+        super(MTLSTM, self).__init__()
         self.embed = False
         if n_vocab is not None:
             self.embed = True
