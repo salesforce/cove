@@ -8,6 +8,8 @@ example.py uses [torchtext](https://github.com/pytorch/text/tree/master/torchtex
 It uses a [PyTorch](http://pytorch.org/) implementation of the MTLSTM class in mtlstm.py to load a pretrained encoder, 
 which takes in sequences of vectors pretrained with GloVe and outputs CoVe.
 
+A Keras/TensorFlow implementation of the MT-LSTM/CoVe can be found at https://github.com/rgsachin/CoVe.
+
 ## Running with Docker
 
 Install [Docker](https://www.docker.com/get-docker).
