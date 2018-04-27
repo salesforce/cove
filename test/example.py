@@ -13,7 +13,7 @@ train, dev, test = datasets.SNLI.splits(inputs, answers)
 
 print('Building vocabulary')
 inputs.build_vocab(train, dev, test)
-inputs.vocab.load_vectors(wv_type='glove.840B', wv_dim=300)
+inputs.vocab.load_vectors(vectors="glove.840B.300d")
 answers.build_vocab(train)
 
 model = MTLSTM(n_vocab=len(inputs.vocab), vectors=inputs.vocab.vectors)
