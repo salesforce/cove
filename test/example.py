@@ -1,6 +1,7 @@
 import torch
 from torchtext import data
 from torchtext import datasets
+from torchtext.vocab import GloVe
 
 from cove import MTLSTM
 
@@ -13,14 +14,14 @@ train, dev, test = datasets.SNLI.splits(inputs, answers)
 
 print('Building vocabulary')
 inputs.build_vocab(train, dev, test)
-inputs.vocab.load_vectors(wv_type='glove.840B', wv_dim=300)
+inputs.vocab.load_vectors(vectors=GloVe(name='840B', dim=300))
 answers.build_vocab(train)
 
 model = MTLSTM(n_vocab=len(inputs.vocab), vectors=inputs.vocab.vectors)
 model.cuda(0)
 
 train_iter, dev_iter, test_iter = data.BucketIterator.splits(
-            (train, dev, test), batch_size=100, device=0)
+            (train, dev, test), batch_size=100, device=torch.device(0))
 
 train_iter.init_epoch()
 print('Generating CoVe')

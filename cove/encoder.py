@@ -20,7 +20,7 @@ class MTLSTM(nn.Module):
         """Initialize an MTLSTM.
          
         Arguments:
-            n_vocab (bool): If not None, initialize MTLSTM with an embedding matrix with n_vocab vectors
+            n_vocab (int): If not None, initialize MTLSTM with an embedding matrix with n_vocab vectors
             vectors (Float Tensor): If not None, initialize embedding matrix with specified vectors
             residual_embedding (bool): If True, concatenate the input embeddings with MTLSTM outputs during forward
         """
