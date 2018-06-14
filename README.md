@@ -1,6 +1,6 @@
 # Context Vectors (CoVe)
 
-This repo provides the best MT-LSTM from the paper [Learned in Translation: Contextualized Word Vectors (McCann et. al. 2017)](https://arxiv.org/abs/1708.00107).
+This repo provides the best MT-LSTM from the paper [Learned in Translation: Contextualized Word Vectors (McCann et. al. 2017)](http://papers.nips.cc/paper/7209-learned-in-translation-contextualized-word-vectors.pdf).
 For a high-level overview of why CoVe are great, check out the [post](https://einstein.ai/research/learned-in-translation-contextualized-word-vectors).
 
 example.py uses [torchtext](https://github.com/pytorch/text/tree/master/torchtext) to load the [Stanford Natural Language Inference Corpus](https://nlp.stanford.edu/projects/snli/) and [GloVe](https://nlp.stanford.edu/projects/glove/).
@@ -46,7 +46,7 @@ python test/example.py
 
 If using this code, please cite:
 
-   B. McCann, J. Bradbury, C. Xiong, R. Socher, [*Learned in Translation: Contextualized Word Vectors*](https://arxiv.org/abs/1708.00107)
+   B. McCann, J. Bradbury, C. Xiong, R. Socher, [*Learned in Translation: Contextualized Word Vectors*](http://papers.nips.cc/paper/7209-learned-in-translation-contextualized-word-vectors.pdf)
 
 ```
 @inproceedings{mccann2017learned,
