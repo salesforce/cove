@@ -49,10 +49,11 @@ If using this code, please cite:
    B. McCann, J. Bradbury, C. Xiong, R. Socher, [*Learned in Translation: Contextualized Word Vectors*](https://arxiv.org/abs/1708.00107)
 
 ```
-@article{McCann2017LearnedIT,
-  title={Learned in Translation: Contextualized Word Vectors},
-  author={Bryan McCann and James Bradbury and Caiming Xiong and Richard Socher},
-  journal={arXiv preprint arXiv:1708.00107},
+@inproceedings{mccann2017learned,
+  title={Learned in translation: Contextualized word vectors},
+  author={McCann, Bryan and Bradbury, James and Xiong, Caiming and Socher, Richard},
+  booktitle={Advances in Neural Information Processing Systems},
+  pages={6297--6308},
   year={2017}
 }
 ```
