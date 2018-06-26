@@ -5,9 +5,10 @@ For a high-level overview of why CoVe are great, check out the [post](https://ei
 
 example.py uses [torchtext](https://github.com/pytorch/text/tree/master/torchtext) to load the [Stanford Natural Language Inference Corpus](https://nlp.stanford.edu/projects/snli/) and [GloVe](https://nlp.stanford.edu/projects/glove/).
 
-It uses a [PyTorch](http://pytorch.org/) implementation of the MTLSTM class in mtlstm.py to load a pretrained encoder, 
+This repository uses a [PyTorch](http://pytorch.org/) implementation of the MTLSTM class in mtlstm.py to load a pretrained encoder, 
 which takes in sequences of vectors pretrained with GloVe and outputs CoVe.
 
+## Need CoVe in Tensorflow?
 A Keras/TensorFlow implementation of the MT-LSTM/CoVe can be found at https://github.com/rgsachin/CoVe.
 
 ## Unkown Words
