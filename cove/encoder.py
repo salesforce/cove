@@ -47,6 +47,8 @@ class MTLSTM(nn.Module):
         """
         if self.embed:
             inputs = self.vectors(inputs)
+        if not isinstance(lengths, torch.Tensor):
+            lengths = torch.Tensor(lengths).long()
         lens, indices = torch.sort(lengths, 0, True)
         outputs, hidden_t = self.rnn(pack(inputs[indices], lens.tolist(), batch_first=True), hidden)
         outputs = unpack(outputs, batch_first=True)[0]
