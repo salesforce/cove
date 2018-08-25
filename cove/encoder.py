@@ -51,7 +51,7 @@ class MTLSTM(nn.Module):
             lengths = torch.Tensor(lengths).long()
             if inputs.is_cuda:
                 with torch.cuda.device_of(inputs):
-                    lengths.cuda(torch.cuda.current_device())
+                    lengths = lengths.cuda(torch.cuda.current_device())
         lens, indices = torch.sort(lengths, 0, True)
         outputs, hidden_t = self.rnn(pack(inputs[indices], lens.tolist(), batch_first=True), hidden)
         outputs = unpack(outputs, batch_first=True)[0]
