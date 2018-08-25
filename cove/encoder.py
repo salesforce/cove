@@ -11,12 +11,12 @@ model_urls = {
     'wmt-lstm' : 'https://s3.amazonaws.com/research.metamind.io/cove/wmtlstm-b142a7f2.pth'
 }
 
-model_cache = os.path.join(os.path.dirname(os.path.realpath(__file__)), '.torch')
+MODEL_CACHE = os.path.join(os.path.dirname(os.path.realpath(__file__)), '.torch')
 
 
 class MTLSTM(nn.Module):
 
-    def __init__(self, n_vocab=None, vectors=None, residual_embeddings=False):
+    def __init__(self, n_vocab=None, vectors=None, residual_embeddings=False, model_cache=MODEL_CACHE):
         """Initialize an MTLSTM.
          
         Arguments:
