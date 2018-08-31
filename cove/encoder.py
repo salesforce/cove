@@ -8,15 +8,15 @@ import torch.utils.model_zoo as model_zoo
 
 
 model_urls = {
-    'wmt-lstm' : 'https://s3.amazonaws.com/research.metamind.io/cove/wmtlstm-b142a7f2.pth'
+    'wmt-lstm' : 'https://s3.amazonaws.com/research.metamind.io/cove/wmtlstm-8f474287.pth'
 }
 
-model_cache = os.path.join(os.path.dirname(os.path.realpath(__file__)), '.torch')
+MODEL_CACHE = os.path.join(os.path.dirname(os.path.realpath(__file__)), '.torch')
 
 
 class MTLSTM(nn.Module):
 
-    def __init__(self, n_vocab=None, vectors=None, residual_embeddings=False):
+    def __init__(self, n_vocab=None, vectors=None, residual_embeddings=False, model_cache=MODEL_CACHE):
         """Initialize an MTLSTM.
          
         Arguments:
@@ -47,6 +47,11 @@ class MTLSTM(nn.Module):
         """
         if self.embed:
             inputs = self.vectors(inputs)
+        if not isinstance(lengths, torch.Tensor):
+            lengths = torch.Tensor(lengths).long()
+            if inputs.is_cuda:
+                with torch.cuda.device_of(inputs):
+                    lengths = lengths.cuda(torch.cuda.current_device())
         lens, indices = torch.sort(lengths, 0, True)
         outputs, hidden_t = self.rnn(pack(inputs[indices], lens.tolist(), batch_first=True), hidden)
         outputs = unpack(outputs, batch_first=True)[0]
