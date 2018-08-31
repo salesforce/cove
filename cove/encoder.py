@@ -8,7 +8,7 @@ import torch.utils.model_zoo as model_zoo
 
 
 model_urls = {
-    'wmt-lstm' : 'https://s3.amazonaws.com/research.metamind.io/cove/wmtlstm-b142a7f2.pth'
+    'wmt-lstm' : 'https://s3.amazonaws.com/research.metamind.io/cove/wmtlstm-8f474287.pth'
 }
 
 MODEL_CACHE = os.path.join(os.path.dirname(os.path.realpath(__file__)), '.torch')
