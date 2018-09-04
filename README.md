@@ -26,8 +26,10 @@ Install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) if you would li
 
 ```bash
 docker pull bmccann/cove   # pull the docker image
-docker run -it cove        # start a docker container
-python /cove/test/example.py
+# On CPU
+docker run -it --rm -v `pwd`/cove:/cove/ -v `pwd`/test:/test/ -v `pwd`/.embeddings:/.embeddings/ -v `pwd`/.data/:/.data/ bmccann:cove bash -c "python /test/example.py --device -1" 
+# On GPU
+nvidia-docker run -it --rm -v `pwd`/cove:/cove/ -v `pwd`/test:/test/ -v `pwd`/.embeddings:/.embeddings/ -v `pwd`/.data/:/.data/ bmccann:cove bash -c "python /test/example.py" 
 ```
 
 ## Running without Docker
@@ -39,6 +41,9 @@ git clone https://github.com/salesforce/cove.git # use ssh: git@github.com:sales
 cd cove
 pip install -r requirements.txt
 python setup.py develop
+# On CPU
+python test/example.py --device -1
+# On GPU
 python test/example.py
 ```
 
