@@ -26,9 +26,9 @@ print('Building vocabulary')
 inputs.build_vocab(train, dev, test)
 inputs.vocab.load_vectors(vectors=GloVe(name='840B', dim=300, cache=args.embeddings))
 
-outputs_last_layer_cove = MTLSTM(n_vocab=len(inputs.vocab), vectors=inputs.vocab.vectors)
-outputs_both_layer_cove = MTLSTM(n_vocab=len(inputs.vocab), vectors=inputs.vocab.vectors, layer0=True)
-outputs_both_layer_cove_with_glove = MTLSTM(n_vocab=len(inputs.vocab), vectors=inputs.vocab.vectors, layer0=True, residual_embeddings=True)
+outputs_last_layer_cove = MTLSTM(n_vocab=len(inputs.vocab), vectors=inputs.vocab.vectors, model_cache=args.embeddings)
+outputs_both_layer_cove = MTLSTM(n_vocab=len(inputs.vocab), vectors=inputs.vocab.vectors, layer0=True, model_cache=args.embeddings)
+outputs_both_layer_cove_with_glove = MTLSTM(n_vocab=len(inputs.vocab), vectors=inputs.vocab.vectors, layer0=True, residual_embeddings=True, model_cache=args.embeddings)
 
 if args.device >=0:
     outputs_last_layer_cove.cuda()
