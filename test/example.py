@@ -10,7 +10,7 @@ from cove import MTLSTM
 
 
 parser = ArgumentParser()
-parser.add_argument('--device', default=0, help='Which device to run one; -1 for CPU')
+parser.add_argument('--device', default=0, help='Which device to run one; -1 for CPU', type=int)
 parser.add_argument('--data', default='.data', help='where to store data')
 parser.add_argument('--embeddings', default='.embeddings', help='where to store embeddings')
 args = parser.parse_args()
@@ -30,7 +30,7 @@ outputs_last_layer_cove = MTLSTM(n_vocab=len(inputs.vocab), vectors=inputs.vocab
 outputs_both_layer_cove = MTLSTM(n_vocab=len(inputs.vocab), vectors=inputs.vocab.vectors, layer0=True, model_cache=args.embeddings)
 outputs_both_layer_cove_with_glove = MTLSTM(n_vocab=len(inputs.vocab), vectors=inputs.vocab.vectors, layer0=True, residual_embeddings=True, model_cache=args.embeddings)
 
-if args.device >=0:
+if args.device >= 0:
     outputs_last_layer_cove.cuda()
     outputs_both_layer_cove.cuda()
     outputs_both_layer_cove_with_glove.cuda()
@@ -52,4 +52,3 @@ for batch_idx, batch in enumerate(train_iter):
     print(last_layer_cove[:, :, -10:])
     print(first_then_last_layer_cove[:, :, -10:])
     print(glove_then_first_then_last_layer_cove[:, :, -10:])
-
